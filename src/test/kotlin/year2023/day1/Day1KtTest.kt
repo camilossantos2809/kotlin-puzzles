@@ -12,18 +12,14 @@ class Day1KtTest {
          pqr3stu8vwx
          a1b2c3d4e5f
          treb7uchet"""
-
         assertEquals(142, calibration(input))
     }
 
     @Test
     fun `part 1 - when no digit was found`() {
-        val input = """abc
-            def
-            ghi
+        val input = """eightwothree
         """
-
-        assertEquals(0, calibration(input))
+        assertEquals(83, calibration(input))
     }
 
     @Test

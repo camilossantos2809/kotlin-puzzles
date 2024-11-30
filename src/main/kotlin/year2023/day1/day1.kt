@@ -15,7 +15,7 @@ val validDigitNames = mapOf(
 )
 
 fun calibration(input: String): Int {
-    return input.split("\n").map { line ->
+    return input.trim().split("\n").map { line ->
         val digitsFound = mutableMapOf<Int, Int>()
         validDigitNames.forEach { entry ->
             var index = line.indexOf(entry.key)
@@ -31,8 +31,8 @@ fun calibration(input: String): Int {
                 digitsFound[index] = line[index].digitToInt()
             }
         }
-        val first = digitsFound.minByOrNull { it.key }?.value ?: 0
-        val last = digitsFound.maxByOrNull { it.key }?.value ?: 0
+        val first = digitsFound.minBy { it.key }.value
+        val last = digitsFound.maxBy { it.key }.value
         "$first$last".toInt()
     }
         .fold(0) { acc, number -> acc + number }
