@@ -3,8 +3,8 @@ package year2024.day1
 import java.io.File
 
 fun calcTotalDistance(input: String): Int {
-    var leftList = emptyList<String>().toMutableList()
-    var rightList= emptyList<String>().toMutableList()
+    val leftList = emptyList<String>().toMutableList()
+    val rightList = emptyList<String>().toMutableList()
     input.split("\n").map { line ->
         val (left, right) = line.split("   ")
         leftList.add(left)
@@ -14,13 +14,13 @@ fun calcTotalDistance(input: String): Int {
     rightList.sort()
     var sum = 0
     for (i in leftList.indices) {
-        var diff=0
+        var diff: Int
         val left = leftList[i].toInt()
         val right = rightList[i].toInt()
-        if(left > right) {
-            diff = left - right
+        diff = if (left > right) {
+            left - right
         } else {
-            diff = right - left
+            right - left
         }
         sum += diff
     }
