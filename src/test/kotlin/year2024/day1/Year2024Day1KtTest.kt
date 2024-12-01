@@ -3,6 +3,7 @@ package year2024.day1
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
+import java.io.File
 
 class Year2024Day1KtTest {
 
@@ -30,5 +31,12 @@ class Year2024Day1KtTest {
 //        14032 + 10614 + 11218
         val result = calcTotalDistance(parseTextToLists(input))
         assertEquals(35864, result)
+    }
+
+    @Test
+    fun `part 1 - Full input - should always return the correct answer to advent of code`() {
+        val input = File("src/main/kotlin/year2024/day1/input.txt").readText()
+        val result = calcTotalDistance(parseTextToLists(input))
+        assertEquals(2164381, result)
     }
 }
