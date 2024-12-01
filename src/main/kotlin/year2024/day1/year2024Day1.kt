@@ -2,7 +2,7 @@ package year2024.day1
 
 import java.io.File
 
-fun calcTotalDistance(input: String): Int {
+internal fun parseTextToLists(input: String): Pair<List<String>, List<String>> {
     val leftList = emptyList<String>().toMutableList()
     val rightList = emptyList<String>().toMutableList()
     input.split("\n").map { line ->
@@ -10,13 +10,18 @@ fun calcTotalDistance(input: String): Int {
         leftList.add(left)
         rightList.add(right)
     }
-    leftList.sort()
-    rightList.sort()
+    return Pair(leftList, rightList)
+}
+
+fun calcTotalDistance(lists: Pair<List<String>, List<String>>): Int {
+    val (leftList, rightList) = lists
+    val sortedLeftList = leftList.sorted()
+    val sortedRightList = rightList.sorted()
     var sum = 0
-    for (i in leftList.indices) {
+    for (i in sortedLeftList.indices) {
         var diff: Int
-        val left = leftList[i].toInt()
-        val right = rightList[i].toInt()
+        val left = sortedLeftList[i].toInt()
+        val right = sortedRightList[i].toInt()
         diff = if (left > right) {
             left - right
         } else {
@@ -27,7 +32,14 @@ fun calcTotalDistance(input: String): Int {
     return sum
 }
 
+
+
+fun calculateSimilarity(input: String): Int {
+    return 0
+}
+
 fun main() {
     val input = File("src/main/kotlin/year2024/day1/input.txt").readText()
-    println(calcTotalDistance(input))
+    val lists = parseTextToLists(input)
+    println(calcTotalDistance(lists))
 }

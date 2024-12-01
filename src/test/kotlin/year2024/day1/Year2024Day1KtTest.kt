@@ -15,7 +15,7 @@ class Year2024Day1KtTest {
 3   9
 3   3"""
 
-        val result = calcTotalDistance(input)
+        val result = calcTotalDistance(parseTextToLists(input))
         assertEquals(11, result)
     }
 
@@ -28,7 +28,7 @@ class Year2024Day1KtTest {
 //        31586, 39877, 76594
 //        45618, 50491, 65376
 //        14032 + 10614 + 11218
-        val result = calcTotalDistance(input)
+        val result = calcTotalDistance(parseTextToLists(input))
         assertEquals(35864, result)
     }
 }
