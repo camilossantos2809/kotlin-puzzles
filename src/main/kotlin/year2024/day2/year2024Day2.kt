@@ -17,14 +17,30 @@ fun hasOnlyAllowedDiffs(list: List<Int>): Boolean {
     return list.zipWithNext { previous, next -> abs(next - previous) in 1..3 }.all { it }
 }
 
+fun isSafeReport(list: List<Int>) = (isAllIncreasing(list) || isAllDecreasing(list)) && hasOnlyAllowedDiffs(list)
+
 fun countTotalSafeReports(input: List<String>): Int {
     return input.count { line ->
         val intList = line.split(" ").map { it.toInt() }
-        (isAllIncreasing(intList) || isAllDecreasing(intList)) && hasOnlyAllowedDiffs(intList)
+        isSafeReport(intList)
+    }
+}
+
+fun countSafeReportsRemovingOneLevel(input: List<String>): Int {
+    return input.count { line ->
+        val intList = line.split(" ").map { it.toInt() }
+        if (isSafeReport(intList)) {
+            return@count true
+        }
+         intList.withIndex().any { (index) ->
+            val filtered = intList.filterIndexed { filterIndex, _ -> filterIndex != index }
+            isSafeReport(filtered)
+        }
     }
 }
 
 fun main() {
     val input = Path("src/main/kotlin/year2024/day2/input.txt").readLines()
     println(countTotalSafeReports(input))
+    println(countSafeReportsRemovingOneLevel(input))
 }
