@@ -3,7 +3,6 @@ package year2024.day1
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
-import java.io.File
 import kotlin.io.path.Path
 import kotlin.io.path.readLines
 
@@ -44,5 +43,26 @@ class Year2024Day1KtTest {
         val input = Path("src/main/kotlin/year2024/day1/input.txt").readLines()
         val result = calcTotalDistance(parseTextToLists(input))
         assertEquals(2164381, result)
+    }
+
+    @Test
+    fun `part 2 - Calc similarity - example list on advent of code site`() {
+        val input = listOf(
+            "3   4",
+            "4   3",
+            "2   5",
+            "1   3",
+            "3   9",
+            "3   3"
+        )
+        val result = calculateSimilarity(parseTextToLists(input))
+        assertEquals(31, result)
+    }
+
+    @Test
+    fun `part 2 - Full input - should always return the correct answer to advent of code`() {
+        val input = Path("src/main/kotlin/year2024/day1/input.txt").readLines()
+        val result = calculateSimilarity(parseTextToLists(input))
+        assertEquals(20719933, result)
     }
 }
