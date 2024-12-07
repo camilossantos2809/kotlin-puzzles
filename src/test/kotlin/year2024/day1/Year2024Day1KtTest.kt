@@ -1,11 +1,11 @@
 package year2024.day1
 
-import org.junit.jupiter.api.Test
 
-import org.junit.jupiter.api.Assertions.*
 import parseTextToLists
 import kotlin.io.path.Path
 import kotlin.io.path.readLines
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class Year2024Day1KtTest {
 

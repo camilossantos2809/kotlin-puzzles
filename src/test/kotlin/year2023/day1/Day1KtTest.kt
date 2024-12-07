@@ -1,8 +1,7 @@
 package year2023.day1
 
-import org.junit.jupiter.api.Test
-
-import org.junit.jupiter.api.Assertions.*
+import kotlin.test.assertEquals
+import kotlin.test.Test
 
 class Day1KtTest {
 
