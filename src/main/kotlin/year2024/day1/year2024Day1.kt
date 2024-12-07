@@ -8,15 +8,9 @@ import kotlin.math.abs
 
 fun calcTotalDistance(lists: Pair<List<String>, List<String>>): Int {
     val (leftList, rightList) = lists
-    val sortedLeftList = leftList.sorted()
-    val sortedRightList = rightList.sorted()
-    var sum = 0
-    for (i in sortedLeftList.indices) {
-        val left = sortedLeftList[i].toInt()
-        val right = sortedRightList[i].toInt()
-        sum += abs(left - right)
+    return leftList.sorted().zip(rightList.sorted()).sumOf { (left, right) ->
+        abs(left.toInt() - right.toInt())
     }
-    return sum
 }
 
 
