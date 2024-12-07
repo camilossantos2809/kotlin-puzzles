@@ -3,6 +3,7 @@ package year2024.day1
 import parseTextToLists
 import kotlin.io.path.Path
 import kotlin.io.path.readLines
+import kotlin.math.abs
 
 
 fun calcTotalDistance(lists: Pair<List<String>, List<String>>): Int {
@@ -11,15 +12,9 @@ fun calcTotalDistance(lists: Pair<List<String>, List<String>>): Int {
     val sortedRightList = rightList.sorted()
     var sum = 0
     for (i in sortedLeftList.indices) {
-        var diff: Int
         val left = sortedLeftList[i].toInt()
         val right = sortedRightList[i].toInt()
-        diff = if (left > right) {
-            left - right
-        } else {
-            right - left
-        }
-        sum += diff
+        sum += abs(left - right)
     }
     return sum
 }
