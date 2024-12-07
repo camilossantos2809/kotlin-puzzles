@@ -4,6 +4,8 @@ import kotlin.io.path.Path
 import kotlin.io.path.readLines
 import kotlin.math.abs
 
+fun String.splitToInt(): List<Int> = this.split(" ").map { it.toInt() }
+
 fun isAllIncreasing(list: List<Int>): Boolean {
     return list.zipWithNext { previous, next -> previous < next }.all { it }
 }
@@ -17,14 +19,29 @@ fun hasOnlyAllowedDiffs(list: List<Int>): Boolean {
     return list.zipWithNext { previous, next -> abs(next - previous) in 1..3 }.all { it }
 }
 
+fun isSafeReport(list: List<Int>) = (isAllIncreasing(list) || isAllDecreasing(list)) && hasOnlyAllowedDiffs(list)
+
 fun countTotalSafeReports(input: List<String>): Int {
+    return input.count {
+        isSafeReport(it.splitToInt())
+    }
+}
+
+fun countSafeReportsRemovingOneLevel(input: List<String>): Int {
     return input.count { line ->
-        val intList = line.split(" ").map { it.toInt() }
-        (isAllIncreasing(intList) || isAllDecreasing(intList)) && hasOnlyAllowedDiffs(intList)
+        val intList = line.splitToInt()
+        if (isSafeReport(intList)) {
+            return@count true
+        }
+        intList.withIndex().any { (index) ->
+            val filtered = intList.filterIndexed { filterIndex, _ -> filterIndex != index }
+            isSafeReport(filtered)
+        }
     }
 }
 
 fun main() {
     val input = Path("src/main/kotlin/year2024/day2/input.txt").readLines()
     println(countTotalSafeReports(input))
+    println(countSafeReportsRemovingOneLevel(input))
 }

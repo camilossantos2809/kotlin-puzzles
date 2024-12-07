@@ -67,4 +67,17 @@ class Year2024Day2KtTest {
         val result = countTotalSafeReports(input)
         assertEquals(287, result)
     }
+
+    @Test
+    fun `part 2`(){
+        val result = countSafeReportsRemovingOneLevel(inputExample)
+        assertEquals(4, result)
+    }
+
+    @Test
+    fun `part 2 - Full input - should always return the correct answer to advent of code`() {
+        val input = Path("src/main/kotlin/year2024/day2/input.txt").readLines()
+        val result = countSafeReportsRemovingOneLevel(input)
+        assertEquals(354, result)
+    }
 }
