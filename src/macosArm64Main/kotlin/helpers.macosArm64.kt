@@ -12,8 +12,7 @@ actual object FileHelper {
             memScoped {
                 val buffer = ByteArray(8192)
                 while (true) {
-                    val line = fgets(buffer.refTo(0), buffer.size, file)?.toKString()
-                    if (line == null) break
+                    val line = fgets(buffer.refTo(0), buffer.size, file)?.toKString() ?: break
                     lines.add(line.trimEnd('\n', '\r'))
                 }
             }
