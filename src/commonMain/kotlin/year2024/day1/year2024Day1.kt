@@ -20,7 +20,7 @@ fun calculateSimilarity(lists: Pair<List<String>, List<String>>): Int {
 }
 
 fun main() {
-    val input = FileHelper.readLines("src/main/kotlin/year2024/day1/input.txt")
+    val input = FileHelper.readLines("src/commonMain/kotlin/year2024/day1/input.txt")
     val lists = parseTextToLists(input)
     println(calcTotalDistance(lists))
     println(calculateSimilarity(lists))

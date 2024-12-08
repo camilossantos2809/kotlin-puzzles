@@ -38,7 +38,7 @@ fun calibration(input: String): Int {
 
 
 fun main() {
-    val input = FileHelper.readText("src/main/kotlin/year2023/day1/input.txt")
+    val input = FileHelper.readText("src/commonMain/kotlin/year2023/day1/input.txt")
     // should be 53515, but is returning 54514
     println(calibration(input))
 }
