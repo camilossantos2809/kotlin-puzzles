@@ -8,3 +8,9 @@
     }
     return Pair(leftList, rightList)
 }
+
+
+ expect object FileHelper {
+     fun readLines(path: String): List<String>
+     fun readText(path:String):String
+ }

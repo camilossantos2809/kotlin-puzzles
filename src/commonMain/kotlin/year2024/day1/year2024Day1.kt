@@ -1,8 +1,6 @@
 package year2024.day1
 
 import parseTextToLists
-import kotlin.io.path.Path
-import kotlin.io.path.readLines
 import kotlin.math.abs
 
 
@@ -22,7 +20,7 @@ fun calculateSimilarity(lists: Pair<List<String>, List<String>>): Int {
 }
 
 fun main() {
-    val input = Path("src/main/kotlin/year2024/day1/input.txt").readLines()
+    val input = FileHelper.readLines("src/main/kotlin/year2024/day1/input.txt")
     val lists = parseTextToLists(input)
     println(calcTotalDistance(lists))
     println(calculateSimilarity(lists))

@@ -1,7 +1,6 @@
 package year2024.day2
 
-import kotlin.io.path.Path
-import kotlin.io.path.readLines
+
 import kotlin.math.abs
 
 fun String.splitToInt(): List<Int> = this.split(" ").map { it.toInt() }
@@ -41,7 +40,7 @@ fun countSafeReportsRemovingOneLevel(input: List<String>): Int {
 }
 
 fun main() {
-    val input = Path("src/main/kotlin/year2024/day2/input.txt").readLines()
+    val input = FileHelper.readLines("src/main/kotlin/year2024/day2/input.txt")
     println(countTotalSafeReports(input))
     println(countSafeReportsRemovingOneLevel(input))
 }

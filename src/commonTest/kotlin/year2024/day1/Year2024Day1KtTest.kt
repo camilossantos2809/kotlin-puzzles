@@ -2,8 +2,6 @@ package year2024.day1
 
 
 import parseTextToLists
-import kotlin.io.path.Path
-import kotlin.io.path.readLines
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -41,7 +39,7 @@ class Year2024Day1KtTest {
 
     @Test
     fun `part 1 - Full input - should always return the correct answer to advent of code`() {
-        val input = Path("src/main/kotlin/year2024/day1/input.txt").readLines()
+        val input = FileHelper.readLines("src/commonMain/kotlin/year2024/day1/input.txt")
         val result = calcTotalDistance(parseTextToLists(input))
         assertEquals(2164381, result)
     }
@@ -62,7 +60,7 @@ class Year2024Day1KtTest {
 
     @Test
     fun `part 2 - Full input - should always return the correct answer to advent of code`() {
-        val input = Path("src/main/kotlin/year2024/day1/input.txt").readLines()
+        val input = FileHelper.readLines("src/commonMain/kotlin/year2024/day1/input.txt")
         val result = calculateSimilarity(parseTextToLists(input))
         assertEquals(20719933, result)
     }

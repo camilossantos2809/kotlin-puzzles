@@ -15,10 +15,10 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // Add this for basic file operations
-                implementation("org.jetbrains.kotlin:kotlin-stdlib:2.1.0")
+                implementation(kotlin("stdlib"))
             }
         }
+
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
@@ -27,8 +27,7 @@ kotlin {
 
         val macosArm64Main by getting {
             dependencies {
-                // Platform-specific file I/O
-                implementation("org.jetbrains.kotlin:kotlin-stdlib:2.1.0")
+                implementation(kotlin("stdlib"))
             }
         }
     }
