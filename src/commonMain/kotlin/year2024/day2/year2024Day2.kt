@@ -40,7 +40,7 @@ fun countSafeReportsRemovingOneLevel(input: List<String>): Int {
 }
 
 fun main() {
-    val input = FileHelper.readLines("src/main/kotlin/year2024/day2/input.txt")
+    val input = FileHelper.readLines("src/commonMain/kotlin/year2024/day2/input.txt")
     println(countTotalSafeReports(input))
     println(countSafeReportsRemovingOneLevel(input))
 }

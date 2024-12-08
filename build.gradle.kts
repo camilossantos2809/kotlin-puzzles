@@ -16,6 +16,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib"))
+                implementation("com.squareup.okio:okio:3.5.0")
             }
         }
 
