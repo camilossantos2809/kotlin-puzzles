@@ -17,6 +17,8 @@ kotlin {
             dependencies {
                 implementation(kotlin("stdlib"))
                 implementation("com.squareup.okio:okio:3.5.0")
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.curl)
             }
         }
 
