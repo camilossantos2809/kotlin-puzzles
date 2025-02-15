@@ -4,9 +4,11 @@ package year2024.day1
 import parseTextToLists
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import services.fileSystem.FileHelper
+
+const val inputPath = "inputs/input-1.txt"
 
 class Year2024Day1KtTest {
-
     @Test
     fun `part 1 - Example from advent of code`() {
         val input = listOf(
@@ -39,7 +41,7 @@ class Year2024Day1KtTest {
 
     @Test
     fun `part 1 - Full input - should always return the correct answer to advent of code`() {
-        val input = FileHelper.readLines("src/commonMain/kotlin/year2024/day1/input.txt")
+        val input = FileHelper.readLines(inputPath)
         val result = calcTotalDistance(parseTextToLists(input))
         assertEquals(2164381, result)
     }
@@ -60,7 +62,7 @@ class Year2024Day1KtTest {
 
     @Test
     fun `part 2 - Full input - should always return the correct answer to advent of code`() {
-        val input = FileHelper.readLines("src/commonMain/kotlin/year2024/day1/input.txt")
+        val input = FileHelper.readLines(inputPath)
         val result = calculateSimilarity(parseTextToLists(input))
         assertEquals(20719933, result)
     }

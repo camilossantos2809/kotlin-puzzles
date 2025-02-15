@@ -1,6 +1,3 @@
-import okio.FileSystem
-import okio.Path.Companion.toPath
-
 fun parseTextToLists(input: List<String>): Pair<List<String>, List<String>> {
     val leftList = emptyList<String>().toMutableList()
     val rightList = emptyList<String>().toMutableList()
@@ -13,18 +10,3 @@ fun parseTextToLists(input: List<String>): Pair<List<String>, List<String>> {
 }
 
 
-object FileHelper {
-    fun readLines(path: String): List<String> {
-        val filePath = path.toPath()
-        return FileSystem.SYSTEM.read(filePath) {
-            generateSequence { readUtf8Line() }.toList()
-        }
-    }
-
-    fun readText(path: String): String {
-        val filePath = path.toPath()
-        return FileSystem.SYSTEM.read(filePath) {
-            readUtf8()
-        }
-    }
-}
