@@ -3,7 +3,7 @@ Having fun and learning Kotlin by solving small puzzles from Advent of Code.
 
 I'm using this project to learn some tools from kotlin, like coroutines, ktor, okio, etc.
 
-The files are organized by packages from each year and day, example: `yearX.dayY`.
+The files are organized by packages from each year and day, and the file name follows the pattern: `yearXDayY.kt`.
 
 To each day puzzle, exist some unit tests and a function that uses the input from Advent of Code site.
 
