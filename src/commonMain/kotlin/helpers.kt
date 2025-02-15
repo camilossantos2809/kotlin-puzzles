@@ -27,4 +27,17 @@ object FileHelper {
             readUtf8()
         }
     }
+
+    fun overwriteText(path: String, text: String) {
+        val filePath = path.toPath()
+        val fileSystem = FileSystem.SYSTEM
+
+        if (fileSystem.exists(filePath)) {
+            fileSystem.delete(filePath)
+        }
+
+        fileSystem.write(filePath) {
+            writeUtf8(text)
+        }
+    }
 }
