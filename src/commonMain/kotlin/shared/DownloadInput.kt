@@ -4,6 +4,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.runBlocking
 import services.http.Api
+import services.fileSystem.FileHelper
 
 fun downloadInput(day: Int) {
     runBlocking(Dispatchers.IO) {

@@ -1,7 +1,7 @@
 package year2024.day2
 
 
-import FileHelper
+import services.fileSystem.FileHelper
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
