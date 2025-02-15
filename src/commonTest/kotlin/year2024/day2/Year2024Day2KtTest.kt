@@ -5,6 +5,8 @@ import FileHelper
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
+const val inputPath = "inputs/input-2.txt"
+
 class Year2024Day2KtTest {
         private val inputExample = listOf(
             "7 6 4 2 1",
@@ -63,7 +65,7 @@ class Year2024Day2KtTest {
 
     @Test
     fun `part 1 - Full input - should always return the correct answer to advent of code`() {
-        val input = FileHelper.readLines("src/commonMain/kotlin/year2024/day2/input.txt")
+        val input = FileHelper.readLines(inputPath)
         val result = countTotalSafeReports(input)
         assertEquals(287, result)
     }
@@ -76,7 +78,7 @@ class Year2024Day2KtTest {
 
     @Test
     fun `part 2 - Full input - should always return the correct answer to advent of code`() {
-        val input = FileHelper.readLines("src/commonMain/kotlin/year2024/day2/input.txt")
+        val input = FileHelper.readLines(inputPath)
         val result = countSafeReportsRemovingOneLevel(input)
         assertEquals(354, result)
     }
