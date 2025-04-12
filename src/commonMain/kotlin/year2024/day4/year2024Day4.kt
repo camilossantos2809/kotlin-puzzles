@@ -37,7 +37,9 @@ fun convertColumnsOnDiagonalToLines(fullText: String, reverse: Boolean = false):
     val columnSize = lines[0].length
     val lineSize = lines.size
     val columnsConverted = mutableListOf<String>()
-    for (col in 0 until columnSize) {
+    val startLoopValue = if (reverse) 0 else -(lineSize - 1)
+    val endLoopValue = if (reverse) columnSize + (lineSize - 1) else columnSize
+    for (col in startLoopValue until endLoopValue) {
         val columnToLine = buildString {
             for (line in 0 until lineSize) {
                 lines.getOrNull(line)?.getOrNull((if (reverse) col - line else col + line))?.let { append(it) }
@@ -68,18 +70,22 @@ fun countColumnMatchesReversed(text: String): Int {
 
 fun countDiagonalMatches(text: String): Int {
     val columns = convertColumnsOnDiagonalToLines(text)
-    return columns.sumOf { countLineMatches(it) }
+    return columns.sumOf { countLineMatches(it) + countLineMatchesReversed(it) }
 }
 
 fun countDiagonalMatchesReversed(text: String): Int {
     val columns = convertColumnsOnDiagonalToLines(text, reverse = true)
-    println(columns)
-    return columns.sumOf { countLineMatches(it) }
+    return columns.sumOf { countLineMatches(it) + countLineMatchesReversed(it) }
 }
 
 fun countXMAS(text: String): Int {
-    val lines = text.lines()
-    val results = lines.map { listOf(countLineMatches(it)) }
-    return 0
+//    println("line:${countLineMatches(text)}. lineReversed:${countLineMatchesReversed(text)}")
+    val sumLines = countLineMatches(text) + countLineMatchesReversed(text)
+    val sumColumns = countColumnMatches(text) + countColumnMatchesReversed(text)
+    val sumDiagonal = countDiagonalMatches(text) + countDiagonalMatchesReversed(text)
+    println("sumLines: $sumLines. sumColumns: $sumColumns. sumDiagonal: $sumDiagonal")
+    val sum =
+        sumLines + sumColumns + sumDiagonal
+    return sum
 }
 
