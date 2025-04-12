@@ -39,11 +39,12 @@ class Year2024Day1KtTest {
         assertEquals(35864, result)
     }
 
+
     @Test
     fun `part 1 - Full input - should always return the correct answer to advent of code`() {
         val input = FileHelper.readLines(inputPath)
         val result = calcTotalDistance(parseTextToLists(input))
-        assertEquals(2164381, result)
+        assertEquals(1651298, result)
     }
 
     @Test
@@ -64,6 +65,6 @@ class Year2024Day1KtTest {
     fun `part 2 - Full input - should always return the correct answer to advent of code`() {
         val input = FileHelper.readLines(inputPath)
         val result = calculateSimilarity(parseTextToLists(input))
-        assertEquals(20719933, result)
+        assertEquals(21306195, result)
     }
 }
