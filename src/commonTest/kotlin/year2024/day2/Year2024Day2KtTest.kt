@@ -67,7 +67,7 @@ class Year2024Day2KtTest {
     fun `part 1 - Full input - should always return the correct answer to advent of code`() {
         val input = FileHelper.readLines(inputPath)
         val result = countTotalSafeReports(input)
-        assertEquals(287, result)
+        assertEquals(510, result)
     }
 
     @Test
@@ -80,6 +80,6 @@ class Year2024Day2KtTest {
     fun `part 2 - Full input - should always return the correct answer to advent of code`() {
         val input = FileHelper.readLines(inputPath)
         val result = countSafeReportsRemovingOneLevel(input)
-        assertEquals(354, result)
+        assertEquals(553, result)
     }
 }

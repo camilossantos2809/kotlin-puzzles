@@ -32,7 +32,7 @@ class Year2024Day3KtTest {
     fun `part 1 - Full input - should always return the correct answer to advent of code`() {
         val input = FileHelper.readLines(inputPath)
         val result = sumAllMulValues(input.joinToString())
-        assertEquals(173529487, result)
+        assertEquals(159892596, result)
     }
 
     @Test
@@ -51,6 +51,6 @@ class Year2024Day3KtTest {
     fun `part 2 - Full input - should always return the correct answer to advent of code`() {
         val input = FileHelper.readLines(inputPath)
         val result = sumAllMulValuesFiltered(input.joinToString())
-        assertEquals(99532691, result)
+        assertEquals(92626942, result)
     }
 }
