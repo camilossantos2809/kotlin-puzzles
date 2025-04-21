@@ -24,18 +24,18 @@ MAAAMAXXASMMASASMMSSSXAXMXSAMASMSMMSMAXAAAAAMSMMAMXAAAAXAMMMMMASASMSMMAMAMSXMASA
 XSMSMSSMXAAMAXMASMXMMMMSAMXXSMSAMXAMSSSSMSMSMAAMAMMXSXMMSMASASXSXSXMAMXXSAMXMASXXASMSASMSAMAXMAAXMAMMSMSXMXSXMASXXSXMXSAMXMAMAMXSASAMXMMMSXM
 XXSXXAAXSSSMSSXMMMAXMASMMMMXMAMMMMXXAMAXAAAAMMMMASAAXASAXMASASXSASASXMAMAASMSAMAMXSMSAMXMAMMMMXMSMMMAMXMAMAMAMSSXMAMMSAMXAMMMAMASAMMSASAMXAA"""
 
-private const val simpleGrid = """
-    XMAS
-    MASX
-    ASXM
-    SXMA
-    """
 
 class Year2024Day4KtTest {
     @Test
     fun `part 1 - Should return correct answer based on example from advent of code`() {
         val result = countXMAS(examplePart1.lines())
         assertEquals(18, result)
+    }
+
+    @Test
+    fun `part 2 - Should return correct answer based on example from advent of code`() {
+        val result = countXMASPart2(examplePart1)
+        assertEquals(9, result)
     }
 
     @Test
@@ -133,6 +133,13 @@ class Year2024Day4KtTest {
         val result = countXMAS(input)
         assertTrue(result > 438, "Expect to be greater than 438 since this first attempt is wrong")
         assertEquals(2575, result)
+    }
+
+    @Test
+    fun `part 2 - Full input - should always return the correct answer to advent of code`() {
+        val input = FileHelper.readLines(inputPath).joinToString("\n")
+        val result = countXMASPart2(input)
+        assertEquals(2041, result)
     }
 
 }

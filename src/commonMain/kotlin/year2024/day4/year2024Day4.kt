@@ -2,6 +2,7 @@ package year2024.day4
 
 const val WORD_MATCH = "XMAS"
 const val WORD_MATCH_REVERSED = "SAMX"
+const val WORD_MATCH_PART2 = "MAS"
 
 fun countOccurrencesOfAString(line: String, stringToFind: String): Int {
     var count = 0
@@ -88,3 +89,23 @@ fun countXMAS(text: List<String>): Int {
     return sum
 }
 
+fun countXMASPart2(fullText: String): Int {
+    val lines = fullText.lines()
+    val linesSize = lines.size
+    var count = 0
+    for ((index, line) in lines.withIndex()) {
+        if (index == 0 || index == linesSize - 1) continue
+        val lineSize = line.length
+        for ((indexLetter, letter) in line.withIndex()) {
+            if (indexLetter == 0 || indexLetter == lineSize - 1) continue
+            val topLeftFromBottom = "${lines[index - 1][indexLetter - 1]}$letter${lines[index + 1][indexLetter + 1]}"
+            val bottomLeftFromTop = "${lines[index + 1][indexLetter - 1]}$letter${lines[index - 1][indexLetter + 1]}"
+            if ((topLeftFromBottom == WORD_MATCH_PART2 || topLeftFromBottom.reversed() == WORD_MATCH_PART2)
+                && (bottomLeftFromTop == WORD_MATCH_PART2 || bottomLeftFromTop.reversed() == WORD_MATCH_PART2)
+            ) {
+                count += 1
+            }
+        }
+    }
+    return count
+}
